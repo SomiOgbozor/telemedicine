@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A72E4A7A1E90CA2F009E81A9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72E4A791E90CA2F009E81A9 /* PhotoViewController.swift */; };
+		A72E4A7C1E90D634009E81A9 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72E4A7B1E90D634009E81A9 /* ImagePreviewViewController.swift */; };
 		A7B3D8AE1E79FB5D00E320C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3D8AD1E79FB5D00E320C4 /* AppDelegate.swift */; };
-		A7B3D8B01E79FB5D00E320C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3D8AF1E79FB5D00E320C4 /* ViewController.swift */; };
 		A7B3D8B31E79FB5D00E320C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7B3D8B11E79FB5D00E320C4 /* Main.storyboard */; };
 		A7B3D8B51E79FB5D00E320C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B3D8B41E79FB5D00E320C4 /* Assets.xcassets */; };
 		A7B3D8B81E79FB5D00E320C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7B3D8B61E79FB5D00E320C4 /* LaunchScreen.storyboard */; };
+		A7C3740F1E92B93D00AFE7D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3D8AF1E79FB5D00E320C4 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A72E4A791E90CA2F009E81A9 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		A72E4A7B1E90D634009E81A9 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
 		A7B3D8AA1E79FB5D00E320C4 /* SampleCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B3D8AD1E79FB5D00E320C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7B3D8AF1E79FB5D00E320C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,10 +60,12 @@
 			children = (
 				A7B3D8AD1E79FB5D00E320C4 /* AppDelegate.swift */,
 				A7B3D8AF1E79FB5D00E320C4 /* ViewController.swift */,
+				A72E4A791E90CA2F009E81A9 /* PhotoViewController.swift */,
 				A7B3D8B11E79FB5D00E320C4 /* Main.storyboard */,
 				A7B3D8B41E79FB5D00E320C4 /* Assets.xcassets */,
 				A7B3D8B61E79FB5D00E320C4 /* LaunchScreen.storyboard */,
 				A7B3D8B91E79FB5D00E320C4 /* Info.plist */,
+				A72E4A7B1E90D634009E81A9 /* ImagePreviewViewController.swift */,
 			);
 			path = SampleCamera;
 			sourceTree = "<group>";
@@ -91,7 +97,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Somi  Ogbozor";
 				TargetAttributes = {
 					A7B3D8A91E79FB5D00E320C4 = {
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7B3D8B01E79FB5D00E320C4 /* ViewController.swift in Sources */,
 				A7B3D8AE1E79FB5D00E320C4 /* AppDelegate.swift in Sources */,
+				A72E4A7C1E90D634009E81A9 /* ImagePreviewViewController.swift in Sources */,
+				A7C3740F1E92B93D00AFE7D9 /* ViewController.swift in Sources */,
+				A72E4A7A1E90CA2F009E81A9 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +190,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -231,6 +240,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -300,6 +310,7 @@
 				A7B3D8BE1E79FB5D00E320C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

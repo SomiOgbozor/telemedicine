@@ -1,4 +1,4 @@
-//
+
 //  ViewController.swift
 //  SampleCamera2
 //
@@ -15,12 +15,13 @@ class ViewController: UIViewController {
     private var captureSession: AVCaptureSession!
     private var stillImageOutput: AVCaptureStillImageOutput!
     private var previewLayer: AVCaptureVideoPreviewLayer!
+    private var timer : Timer!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCamera()
-        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -53,21 +54,48 @@ class ViewController: UIViewController {
         
     }
     
+    func disPlayCapturedPhoto(capturedPhoto: UIImage) {
+        let imagePreviewViewController =  storyboard?.instantiateViewController(withIdentifier:"ImagePreviewViewController")as! ImagePreviewViewController
+        imagePreviewViewController.capturedImage = capturedPhoto
+        navigationController?.pushViewController(imagePreviewViewController, animated: true)
+    }
     
-    func captureButtonPressed() {
-        
+    func takePhoto() {
         if let videoConnection = stillImageOutput!.connection(withMediaType: AVMediaTypeVideo) {
             videoConnection.videoOrientation = AVCaptureVideoOrientation.portrait
             stillImageOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: {(sampleBuffer, error) in
                 if (sampleBuffer != nil) {
+                    if (self.captureDevice.hasTorch) {
+                        do {
+                            try self.captureDevice.lockForConfiguration()
+                            if (self.captureDevice.torchMode == AVCaptureTorchMode.on) {
+                                self.captureDevice.torchMode = AVCaptureTorchMode.off
+                            } else {
+                                do {
+                                    try self.captureDevice.setTorchModeOnWithLevel(1.0)
+                                } catch {
+                                    print(error)
+                                }
+                            }
+                            self.captureDevice.unlockForConfiguration()
+                        } catch {
+                            print(error)
+                        }
+                    }
                     
                     let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                     let image = UIImage(data: imageData!)!
                     
-                    // do image saving here
+                    self.disPlayCapturedPhoto(capturedPhoto: image)
+                    
+                    
+                    self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.takePhoto), userInfo: nil, repeats: false)
+                    
+                    
                     
                 }
             })
+            
         }
         
     }
@@ -80,13 +108,11 @@ class ViewController: UIViewController {
     
     
     @IBAction func captureButtonAction(_ sender: UIButton) {
-        captureButtonPressed()
+        takePhoto()
     }
     
     
-    
-    @IBAction func flashButtonAction(_ sender: UIButton) {
-        
+    @IBAction func flashAction(_ sender: Any) {
         if (captureDevice.hasTorch) {
             do {
                 try captureDevice.lockForConfiguration()
@@ -104,13 +130,19 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
+        
+        
         if captureDevice.torchMode == .on{
             captureDevice.torchMode = .off
         }
         else {
             captureDevice.torchMode = .on
         }
+        
     }
+    
+    
+    
     
     
     
