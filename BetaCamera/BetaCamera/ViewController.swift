@@ -107,6 +107,7 @@ class ViewController: UIViewController {
         takePhoto()
     }
     
+    
 
     @IBOutlet weak var viewOutlet: UIImageView!
     

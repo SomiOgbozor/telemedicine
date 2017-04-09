@@ -19,5 +19,6 @@ class ImagePreviewViewController : UIViewController{
         imageView.image = capturedImage
         
     }
+    
 }
 
